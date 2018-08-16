@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.uy.atomico.googleapisportfolio.main.CustomDrawerContent xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menuMotionLayout"
+    android:layout_width="@dimen/drawer_layout_menu_width"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/primaryColor"
+    app:layoutDescription="@xml/scene_main_menu">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/atomImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/primaryTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/atom" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/flaskImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/primaryTextColor"
+        app:layout_constraintBottom_toBottomOf="@+id/atomImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/atomImageView"
+        app:srcCompat="@drawable/flask_outline" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/firebaseAuthTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/account_key"
+        android:drawablePadding="@dimen/menu_drawable_padding"
+        android:drawableTint="@color/primaryTextColor"
+        android:text="@string/firebase_auth"
+        android:textSize="@dimen/text_size_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/atomImageView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/mapsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/google_maps"
+        android:drawablePadding="@dimen/menu_drawable_padding"
+        android:drawableTint="@color/primaryTextColor"
+        android:text="@string/google_maps"
+        android:textSize="@dimen/text_size_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firebaseAuthTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/driveTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/google_drive"
+        android:drawablePadding="@dimen/menu_drawable_padding"
+        android:drawableTint="@color/primaryTextColor"
+        android:text="@string/google_drive"
+        android:textSize="@dimen/text_size_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapsTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/visionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/eye"
+        android:drawablePadding="@dimen/menu_drawable_padding"
+        android:drawableTint="@color/primaryTextColor"
+        android:text="@string/google_vision"
+        android:textSize="@dimen/text_size_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/driveTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/messageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_message"
+        android:drawablePadding="@dimen/menu_drawable_padding"
+        android:drawableTint="@color/primaryTextColor"
+        android:text="@string/push_message"
+        android:textSize="@dimen/text_size_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/visionTextView" />
+
+</com.uy.atomico.googleapisportfolio.main.CustomDrawerContent>

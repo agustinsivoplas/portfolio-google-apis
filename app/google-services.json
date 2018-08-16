@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "334917446682",
+    "firebase_url": "https://portolio-project-1533596428318.firebaseio.com",
+    "project_id": "portolio-project-1533596428318",
+    "storage_bucket": "portolio-project-1533596428318.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334917446682:android:ed5e8fec0a93e3df",
+        "android_client_info": {
+          "package_name": "com.uy.atomico.googleapisportfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334917446682-vko9t5ustkqdoa8jehurmejlttj9sbh8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uy.atomico.googleapisportfolio",
+            "certificate_hash": "edf52422873f60f6d339abdcd894024706317ff4"
+          }
+        },
+        {
+          "client_id": "334917446682-5mq9odm83kac0piv5k29t92vdallbiat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFN5VJo1uisTO3_rUiC7kV44YA9FUveDQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334917446682-5mq9odm83kac0piv5k29t92vdallbiat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

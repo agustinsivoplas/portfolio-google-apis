@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="250">
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="0"
+                motion:target="@id/firebaseAuthTextView" />
+
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="100"
+                motion:target="@id/firebaseAuthTextView" />
+
+            <KeyAttribute
+                android:alpha="0"
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="0"
+                motion:target="@id/mapsTextView" />
+
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="100"
+                motion:target="@id/mapsTextView" />
+
+            <KeyAttribute
+                android:alpha="0"
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="0"
+                motion:target="@id/driveTextView" />
+
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="100"
+                motion:target="@id/driveTextView" />
+
+            <KeyAttribute
+                android:alpha="0"
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="0"
+                motion:target="@id/visionTextView" />
+
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="100"
+                motion:target="@id/visionTextView" />
+
+
+            <KeyAttribute
+                android:alpha="0"
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="0"
+                motion:target="@id/messageTextView" />
+
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="100"
+                motion:target="@id/messageTextView" />
+
+
+            <KeyAttribute
+                android:alpha="0"
+                android:scaleX="0"
+                android:scaleY="0"
+                android:translationY="-100dp"
+                motion:framePosition="0"
+                motion:target="@id/flaskImageView" />
+
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1"
+                android:scaleY="1"
+                android:translationY="0dp"
+                motion:framePosition="100"
+                motion:target="@id/flaskImageView" />
+
+            <KeyAttribute
+                android:alpha="0"
+                android:scaleX="0"
+                android:scaleY="0"
+                android:translationY="-100dp"
+                motion:framePosition="0"
+                motion:target="@id/atomImageView" />
+
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1"
+                android:scaleY="1"
+                android:translationY="0dp"
+                motion:framePosition="100"
+                motion:target="@id/atomImageView" />
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@id/firebaseAuthTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/atomImageView" />
+
+        <Constraint
+            android:id="@id/mapsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/firebaseAuthTextView" />
+
+        <Constraint
+            android:id="@id/driveTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/mapsTextView" />
+
+        <Constraint
+            android:id="@id/visionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/driveTextView" />
+
+        <Constraint
+            android:id="@id/messageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/visionTextView" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@id/atomImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/firebaseAuthTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/atomImageView" />
+
+        <Constraint
+            android:id="@id/mapsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/firebaseAuthTextView" />
+
+        <Constraint
+            android:id="@+id/driveTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/mapsTextView" />
+
+        <Constraint
+            android:id="@+id/visionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/driveTextView" />
+
+        <Constraint
+            android:id="@+id/messageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/menu_margin_start"
+            android:layout_marginTop="@dimen/menu_item_margin_top"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/visionTextView" />
+    </ConstraintSet>
+</MotionScene>

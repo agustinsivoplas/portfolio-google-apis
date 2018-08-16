@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/splashMotionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_splash">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/atomSplashImageView"
+        android:layout_width="@dimen/atom_splash_size"
+        android:layout_height="@dimen/atom_splash_size"
+        android:tint="@color/primaryColor"
+        android:transitionName="atomTransition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/atom" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/flaskSplashImageView"
+        android:transitionName="flaskTransition"
+        android:layout_width="@dimen/flask_splash_size"
+        android:layout_height="@dimen/flask_splash_size"
+        android:tint="@color/primaryColor"
+        app:layout_constraintBottom_toBottomOf="@+id/atomSplashImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/atomSplashImageView"
+        app:srcCompat="@drawable/flask_outline" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

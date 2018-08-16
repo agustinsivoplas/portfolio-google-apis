@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Google Apis Portfolio</string>
+    <string name="google_drive">Google Drive</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="firebase_auth">Firebase Auth</string>
+    <string name="google_vision">Google Vision</string>
+    <string name="atomico_labs">Atomico Labs</string>
+    <string name="welcome">Welcome!</string>
+    <string name="push_message">Push Message</string>
+</resources>

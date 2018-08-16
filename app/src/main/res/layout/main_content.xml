@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainMotionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/atomMainImageView"
+        android:layout_width="@dimen/atom_main_size"
+        android:layout_height="@dimen/atom_main_size"
+        android:tint="@color/primaryColor"
+        android:transitionName="atomTransition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/atom"
+        android:layout_marginTop="@dimen/extra_small_margin"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/flaskMainImageView"
+        android:layout_width="@dimen/flask_main_size"
+        android:layout_height="@dimen/flask_main_size"
+        android:tint="@color/primaryColor"
+        android:transitionName="flaskTransition"
+        app:layout_constraintBottom_toBottomOf="@+id/atomMainImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/atomMainImageView"
+        app:srcCompat="@drawable/flask_outline" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atomicoLabsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/atomico_labs"
+        android:textColor="@color/primaryColor"
+        android:textStyle="bold"
+        app:fontFamily="@font/russo_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/atomMainImageView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textColor="@color/primaryColor"
+        android:textStyle="bold"
+        app:fontFamily="@font/russo_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/welcome_main_text_size"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/backgroundMainImageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/background_main_height"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/main_bg" />
+</androidx.constraintlayout.widget.ConstraintLayout>
