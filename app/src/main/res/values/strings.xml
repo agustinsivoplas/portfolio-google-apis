@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Google Apis Portfolio</string>
+
+    <string name="facebook_app_id">2191646507738891</string>
+    <string name="fb_login_protocol_scheme">fb2191646507738891</string>
+
     <string name="google_drive">Google Drive</string>
     <string name="google_maps">Google Maps</string>
     <string name="firebase_auth">Firebase Auth</string>
@@ -7,4 +11,8 @@
     <string name="atomico_labs">Atomico Labs</string>
     <string name="welcome">Welcome!</string>
     <string name="push_message">Push Message</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

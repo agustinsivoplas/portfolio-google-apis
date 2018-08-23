@@ -7,4 +7,8 @@ import androidx.multidex.MultiDexApplication
  * Atomico Labs
  */
 class GoogleApisPortfolioApp : MultiDexApplication() {
+
+    override fun onCreate() {
+        super.onCreate()
+    }
 }

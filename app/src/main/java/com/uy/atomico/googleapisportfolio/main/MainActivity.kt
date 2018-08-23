@@ -5,6 +5,7 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.TranslateAnimation
 import androidx.appcompat.app.AppCompatActivity
 import com.uy.atomico.googleapisportfolio.R
+import com.uy.atomico.googleapisportfolio.auth.FirebaseAuthActivity
 import com.uy.atomico.googleapisportfolio.data.api.PushAPI
 import kotlinx.android.synthetic.main.main_content.*
 import kotlinx.android.synthetic.main.motion_main_drawer_layout_menu.*
@@ -23,10 +24,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindListeners() {
-        firebaseAuthTextView.setOnClickListener {  }
-        mapsTextView.setOnClickListener {  }
-        driveTextView.setOnClickListener {  }
-        visionTextView.setOnClickListener {  }
+        firebaseAuthTextView.setOnClickListener {
+            FirebaseAuthActivity.startActivity(this)
+            menuMotionLayout.closeDrawer()
+        }
+        mapsTextView.setOnClickListener {
+            menuMotionLayout.closeDrawer()
+        }
+        driveTextView.setOnClickListener {
+            menuMotionLayout.closeDrawer()
+        }
+        visionTextView.setOnClickListener {
+            menuMotionLayout.closeDrawer()
+        }
         messageTextView.setOnClickListener {
             PushAPI.sendPushNotification()
             menuMotionLayout.closeDrawer()

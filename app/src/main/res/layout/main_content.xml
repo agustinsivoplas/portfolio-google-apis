@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/atom"
-        android:layout_marginTop="@dimen/extra_small_margin"/>
+        android:layout_marginTop="@dimen/view_default_margin_small"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/flaskMainImageView"

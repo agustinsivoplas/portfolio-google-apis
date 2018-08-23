@@ -5,11 +5,26 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
-        <item name="colorAccent">@color/primaryLightColor</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
-        <item name="android:windowBackground">@color/primaryTextColor</item>
+        <item name="colorAccent">@color/primaryColor</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
         <item name="android:windowContentTransitions">true</item>
-        <item name="android:statusBarColor">@color/primaryTextColor</item>
+        <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="TranslucentAppTheme" parent="@style/AppTheme">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
+    </style>
+
+    <style name="PrimaryButtonRoundedCorner" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/primary_rounded_button</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_height">@dimen/rounded_button_height</item>
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
     </style>
 </resources>

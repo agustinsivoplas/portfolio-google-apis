@@ -3,7 +3,7 @@
     <color name="primaryColor">#1374ad</color>
     <color name="primaryLightColor">#59a2df</color>
     <color name="primaryDarkColor">#00497d</color>
-    <color name="primaryTextColor">#ffffff</color>
-
+    <color name="white">#ffffff</color>
     <color name="primaryNotificationColor">#ff1374ad</color>
+    <color name="black_text">#80000000</color>
 </resources>

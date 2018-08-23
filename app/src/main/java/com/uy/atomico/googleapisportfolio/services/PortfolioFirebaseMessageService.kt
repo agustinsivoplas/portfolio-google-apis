@@ -23,7 +23,6 @@ class PortfolioFirebaseMessageService : FirebaseMessagingService() {
         const val CHANNEL_DESC = "Google Apis Portfolio Channel"
         const val KEY_TITLE = "title"
         const val KEY_MESSAGE = "message"
-        const val KEY_BODY = "body"
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
