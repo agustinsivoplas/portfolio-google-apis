@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#1374ad</color>
-    <color name="primaryLightColor">#59a2df</color>
+    <color name="primaryColor">#2170FB</color>
+    <color name="primaryLightColor">#3AB2FC</color>
     <color name="primaryDarkColor">#00497d</color>
     <color name="white">#ffffff</color>
-    <color name="primaryNotificationColor">#ff1374ad</color>
+    <color name="primaryNotificationColor">#ff2170FB</color>
     <color name="black_text">#80000000</color>
 </resources>

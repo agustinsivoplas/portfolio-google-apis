@@ -30,10 +30,12 @@ class SplashActivity : AppCompatActivity() {
             override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
                 val atomPair = Pair.create<View, String>(atomSplashImageView, ViewCompat.getTransitionName(atomSplashImageView))
                 val flaskPair = Pair.create<View, String>(flaskSplashImageView, ViewCompat.getTransitionName(flaskSplashImageView))
+                val backgroundPair = Pair.create<View, String>(backgroundSplashImageView, ViewCompat.getTransitionName(backgroundSplashImageView))
 
                 val pairs = ArrayList<Pair<View, String>>()
                 pairs.add(atomPair)
                 pairs.add(flaskPair)
+                pairs.add(backgroundPair)
 
                 var bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(this@SplashActivity, *pairs.toTypedArray()).toBundle()
                 splashMotionLayout.postDelayed({ startActivity(Intent(this@SplashActivity, MainActivity::class.java), bundle) }, 300)

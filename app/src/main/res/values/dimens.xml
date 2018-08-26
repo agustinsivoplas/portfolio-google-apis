@@ -5,11 +5,13 @@
     <dimen name="menu_item_margin_top">32dp</dimen>
     <dimen name="drawer_layout_menu_width">200dp</dimen>
     <dimen name="menu_margin_start">15dp</dimen>
-    <dimen name="atom_splash_size">280dp</dimen>
-    <dimen name="flask_splash_size">48dp</dimen>
+    <dimen name="atom_splash_size">200dp</dimen>
+    <dimen name="flask_splash_size">36dp</dimen>
+    <dimen name="splash_size_background">185dp</dimen>
 
     <dimen name="atom_main_size">72dp</dimen>
     <dimen name="flask_main_size">16dp</dimen>
+    <dimen name="background_main_size">69dp</dimen>
     <dimen name="background_main_height">250dp</dimen>
     <dimen name="welcome_main_text_size">48sp</dimen>
 

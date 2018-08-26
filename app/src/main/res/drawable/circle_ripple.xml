@@ -10,9 +10,9 @@
 
     <item android:id="@android:id/background">
         <shape android:shape="oval">
-            <solid android:color="@color/primaryColor" />
+            <solid android:color="@color/primaryDarkColor" />
         </shape>
-        <solid android:color="@color/primaryColor" />
+        <solid android:color="@color/primaryDarkColor" />
     </item>
 </ripple>
 

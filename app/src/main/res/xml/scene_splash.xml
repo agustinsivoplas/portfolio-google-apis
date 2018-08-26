@@ -5,9 +5,21 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
-        motion:duration="1000">
+        motion:duration="1500">
 
         <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX="0"
+                android:scaleY="0"
+                motion:framePosition="0"
+                motion:target="@id/backgroundSplashImageView" />
+
+            <KeyAttribute
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="80"
+                motion:target="@id/backgroundSplashImageView" />
+
             <KeyAttribute
                 android:scaleX="0"
                 android:scaleY="0"
@@ -59,6 +71,15 @@
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
+            android:id="@id/backgroundSplashImageView"
+            android:layout_width="@dimen/splash_size_background"
+            android:layout_height="@dimen/splash_size_background"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
             android:id="@id/atomSplashImageView"
             android:layout_width="@dimen/atom_splash_size"
             android:layout_height="@dimen/atom_splash_size"
@@ -78,6 +99,16 @@
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@id/backgroundSplashImageView"
+            android:layout_width="@dimen/splash_size_background"
+            android:layout_height="@dimen/splash_size_background"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
         <Constraint
             android:id="@id/atomSplashImageView"
             android:layout_width="@dimen/atom_splash_size"
