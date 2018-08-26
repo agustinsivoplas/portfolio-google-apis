@@ -1,9 +1,9 @@
 package com.uy.atomico.googleapisportfolio.data.api
 
 import android.util.Log
-import com.decemberlabs.heroly.utils.extensions.formatToDateTime
 import com.google.firebase.iid.FirebaseInstanceId
 import com.uy.atomico.googleapisportfolio.BuildConfig
+import com.uy.atomico.googleapisportfolio.extensions.formatToDateTime
 import com.uy.atomico.googleapisportfolio.services.PortfolioFirebaseMessageService
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers

@@ -8,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.TranslateAnimation
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.updateMargins
-import com.decemberlabs.heroly.utils.extensions.loadCircleImage
-import com.decemberlabs.heroly.utils.extensions.spanBoldLastWord
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -23,13 +22,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FacebookAuthProvider
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.*
 import com.uy.atomico.googleapisportfolio.R
+import com.uy.atomico.googleapisportfolio.extensions.loadCircleImage
+import com.uy.atomico.googleapisportfolio.extensions.spanBoldLastWord
 import kotlinx.android.synthetic.main.activity_auth.*
-
 
 /**
  * Created by agustin.sivoplas@gmail.com on 8/18/18.
@@ -90,6 +87,7 @@ class FirebaseAuthActivity : AppCompatActivity() {
 
         googleSignInButton.setOnClickListener { startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN_CODE) }
         facebookSignInButton.setOnClickListener { LoginManager.getInstance().logInWithReadPermissions(this, arrayListOf("public_profile", "email")); }
+        phoneSignInButton.setOnClickListener { PhoneAuthActivity.startActivity(this) }
 
         signOutButton.setOnClickListener {
             signOut()
@@ -164,7 +162,7 @@ class FirebaseAuthActivity : AppCompatActivity() {
     private fun signOut() {
         mAuth.signOut()
         mGoogleSignInClient.revokeAccess()
-        LoginManager.getInstance().logOut();
+        LoginManager.getInstance().logOut()
     }
 
     private fun renderUserData(user: FirebaseUser?) {
@@ -177,10 +175,10 @@ class FirebaseAuthActivity : AppCompatActivity() {
                     displayNameTextView.text = it.spanBoldLastWord()
                 }
 
-                user.photoUrl?.let {
+                when (user.providers?.get(0)) {
+                    GoogleAuthProvider.PROVIDER_ID -> {
+                        user.photoUrl?.let {
 
-                    when(user.providers?.get(0)) {
-                        GoogleAuthProvider.PROVIDER_ID -> {
                             authenticatedImageView.loadCircleImage(
                                     it.toString() + "?size=512",
                                     resources.getDimensionPixelSize(R.dimen.authenticated_image_view_size),
@@ -188,8 +186,12 @@ class FirebaseAuthActivity : AppCompatActivity() {
                                     R.drawable.ic_account_circle
                             )
                         }
+                        connectedWithTextView.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(this, R.drawable.google), null)
+                    }
 
-                        FacebookAuthProvider.PROVIDER_ID -> {
+                    FacebookAuthProvider.PROVIDER_ID -> {
+                        user.photoUrl?.let {
+
                             authenticatedImageView.loadCircleImage(
                                     it.toString() + "?width=512&heigth=512",
                                     resources.getDimensionPixelSize(R.dimen.authenticated_image_view_size),
@@ -197,8 +199,12 @@ class FirebaseAuthActivity : AppCompatActivity() {
                                     R.drawable.ic_account_circle
                             )
                         }
+                        connectedWithTextView.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(this, R.drawable.facebook_box), null)
+                    }
 
-                        else -> {
+                    PhoneAuthProvider.PROVIDER_ID -> {
+                        connectedWithTextView.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(this, R.drawable.cellphone_lock), null)
+                        user.photoUrl?.let {
                             authenticatedImageView.loadCircleImage(
                                     it.toString(),
                                     resources.getDimensionPixelSize(R.dimen.authenticated_image_view_size),
@@ -206,6 +212,23 @@ class FirebaseAuthActivity : AppCompatActivity() {
                                     R.drawable.ic_account_circle
                             )
                         }
+
+                        user.phoneNumber?.let {
+                            displayNameTextView.text = "Last three digits ${it.takeLast(3)}".spanBoldLastWord()
+                        }
+                    }
+
+                    else -> {
+                        user.photoUrl?.let {
+                            authenticatedImageView.loadCircleImage(
+                                    it.toString(),
+                                    resources.getDimensionPixelSize(R.dimen.authenticated_image_view_size),
+                                    resources.getDimensionPixelSize(R.dimen.authenticated_image_view_size),
+                                    R.drawable.ic_account_circle
+                            )
+                        }
+
+                        connectedWithTextView.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(this, R.drawable.ic_email), null)
                     }
                 }
 
@@ -215,14 +238,6 @@ class FirebaseAuthActivity : AppCompatActivity() {
                 } else {
                     emailTextView.visibility = View.GONE
                 }
-
-                if (!user.phoneNumber.isNullOrBlank()) {
-                    phoneTextView.text = user.phoneNumber
-                    phoneTextView.visibility = View.VISIBLE
-                } else {
-                    phoneTextView.visibility = View.GONE
-                }
-
             } else {
                 authenticatedLayout.visibility = View.GONE
                 loginLayout.visibility = View.VISIBLE

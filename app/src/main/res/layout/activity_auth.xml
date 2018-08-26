@@ -50,8 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/login_layout_margin_top"
-        tools:visibility="visible"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="gone">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailTextInputLayout"
@@ -90,7 +90,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/loginButton"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="@style/PrimaryButtonRoundedCorner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/view_default_margin_large"
@@ -107,6 +107,7 @@
             android:layout_height="@dimen/auth_button_size"
             android:layout_marginEnd="@dimen/view_default_margin_large"
             android:background="@drawable/circle_ripple"
+            android:tint="@color/white"
             android:elevation="@dimen/default_elevation"
             android:src="@drawable/google"
             app:layout_constraintBottom_toBottomOf="@id/phoneSignInButton"
@@ -118,6 +119,7 @@
             android:layout_height="@dimen/auth_button_size"
             android:layout_marginBottom="@dimen/view_default_margin_large"
             android:background="@drawable/circle_ripple"
+            android:tint="@color/white"
             android:elevation="@dimen/default_elevation"
             android:src="@drawable/cellphone_android"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -130,6 +132,7 @@
             android:layout_height="@dimen/auth_button_size"
             android:layout_marginStart="@dimen/view_default_margin_large"
             android:background="@drawable/circle_ripple"
+            android:tint="@color/white"
             android:elevation="@dimen/default_elevation"
             android:src="@drawable/facebook_box"
             app:layout_constraintBottom_toBottomOf="@id/phoneSignInButton"
@@ -142,7 +145,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/authenticated_layout_margin_top"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/containerAuthenticatedImageView"
@@ -179,7 +183,6 @@
             android:layout_marginTop="@dimen/view_default_margin"
             android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="@dimen/view_default_margin"
-            android:drawableTint="@color/primaryColor"
             android:textColor="@color/black_text"
             android:textSize="@dimen/text_size_large"
             app:layout_constraintStart_toStartOf="@+id/displayNameTextView"
@@ -187,18 +190,18 @@
             tools:text="Email" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/phoneTextView"
+            android:id="@+id/connectedWithTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_default_margin"
-            android:drawableLeft="@drawable/cellphone_android"
-            android:drawablePadding="@dimen/view_default_margin"
-            android:drawableTint="@color/primaryColor"
+            android:layout_marginTop="@dimen/view_default_margin_medium"
+            android:drawablePadding="@dimen/view_default_margin_small"
+            android:text="@string/connected_with"
             android:textColor="@color/black_text"
             android:textSize="@dimen/text_size_large"
             app:layout_constraintStart_toStartOf="@+id/displayNameTextView"
-            app:layout_constraintTop_toBottomOf="@+id/emailTextView"
-            tools:text="Phone" />
+            android:textStyle="bold"
+            android:alpha="0.8"
+            app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signOutButton"

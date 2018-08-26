@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.uy.atomico.googleapisportfolio">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -29,6 +30,11 @@
 
         <activity
             android:name=".auth.FirebaseAuthActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentAppTheme"/>
+
+        <activity
+            android:name=".auth.PhoneAuthActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TranslucentAppTheme"/>
 

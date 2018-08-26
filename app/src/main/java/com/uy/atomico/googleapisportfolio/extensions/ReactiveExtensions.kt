@@ -1,4 +1,4 @@
-package com.decemberlabs.heroly.utils.extensions
+package com.uy.atomico.googleapisportfolio.extensions
 
 import io.reactivex.Completable
 import io.reactivex.Flowable
