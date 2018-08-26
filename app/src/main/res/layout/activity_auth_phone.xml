@@ -11,7 +11,6 @@
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/dashboardAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -23,7 +22,6 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/backgroundDashboardImageView"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/background_dashboard_height"
                 android:layout_gravity="top"
@@ -51,6 +49,16 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/login_layout_margin_top">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cellPhoneImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/cellphone_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/view_default_margin_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/codeTextInputLayout"
             android:layout_width="match_parent"
@@ -58,14 +66,15 @@
             android:layout_margin="@dimen/view_default_margin_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/cellPhoneImageView" >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/codeEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_verification_code"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="6"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton

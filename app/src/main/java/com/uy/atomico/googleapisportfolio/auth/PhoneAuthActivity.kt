@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
-import android.view.animation.TranslateAnimation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updateMargins
 import com.google.android.gms.auth.api.Auth
@@ -31,6 +30,7 @@ class PhoneAuthActivity : AppCompatActivity() {
     companion object {
         const val TAG = "PhoneAuthActivity"
         const val RESOLVE_HINT = 998
+        const val KEY_GOOGLE_CREDENTIAL = "com.google.android.gms.credentials.Credential"
 
         fun startActivity(context: Context) {
             context.startActivity(Intent(context, PhoneAuthActivity::class.java))
@@ -70,7 +70,6 @@ class PhoneAuthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_auth_phone)
         setUpToolbar()
         bindListeners()
-        startBackgroundAnimationAnimation()
         requestHint()
     }
 
@@ -100,20 +99,12 @@ class PhoneAuthActivity : AppCompatActivity() {
         startIntentSenderForResult(intent.intentSender, RESOLVE_HINT, null, 0, 0, 0)
     }
 
-    private fun startBackgroundAnimationAnimation() {
-        val translateAnimation = TranslateAnimation(0f, 0f,
-                resources.getDimensionPixelSize(R.dimen.background_dashboard_height) * -1f, 0f)
-        translateAnimation.duration = 500
-        translateAnimation.fillAfter = true
-        backgroundDashboardImageView.startAnimation(translateAnimation)
-    }
-
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RESOLVE_HINT) {
             data?.extras?.let {
-                if (it.containsKey("com.google.android.gms.credentials.Credential")) {
-                    val phone = (it["com.google.android.gms.credentials.Credential"] as Credential).id
+                if (it.containsKey(KEY_GOOGLE_CREDENTIAL)) {
+                    val phone = (it[KEY_GOOGLE_CREDENTIAL] as Credential).id
                     Log.d(TAG, "Request verification code for: $phone")
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(phone, 60, TimeUnit.SECONDS, this, phoneCallback)
                 }

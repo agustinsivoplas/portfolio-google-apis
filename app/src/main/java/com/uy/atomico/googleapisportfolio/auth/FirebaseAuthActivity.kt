@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.TranslateAnimation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.updateMargins
@@ -43,7 +42,6 @@ class FirebaseAuthActivity : AppCompatActivity() {
         }
     }
 
-
     private val mAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
@@ -65,9 +63,7 @@ class FirebaseAuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
         setUpToolbar()
-
         bindListeners()
-        startBackgroundAnimationAnimation()
     }
 
     private fun setUpToolbar() {
@@ -115,14 +111,6 @@ class FirebaseAuthActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         renderUserData(mAuth.currentUser)
-    }
-
-    private fun startBackgroundAnimationAnimation() {
-        val translateAnimation = TranslateAnimation(0f, 0f,
-                resources.getDimensionPixelSize(R.dimen.background_dashboard_height) * -1f, 0f)
-        translateAnimation.duration = 500
-        translateAnimation.fillAfter = true
-        backgroundDashboardImageView.startAnimation(translateAnimation)
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
