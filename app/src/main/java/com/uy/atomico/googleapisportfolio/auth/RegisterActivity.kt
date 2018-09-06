@@ -7,24 +7,23 @@ import android.view.ViewGroup
 import androidx.core.view.updateMargins
 import com.uy.atomico.googleapisportfolio.R
 import com.uy.atomico.googleapisportfolio.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_auth.*
-import kotlinx.android.synthetic.main.fragment_auth.*
+import kotlinx.android.synthetic.main.activity_auth_register.*
 
 /**
- * Created by agustin.sivoplas@gmail.com on 8/18/18.
+ * Created by agustin.sivoplas@gmail.com on 8/26/18.
  * Atomico Labs
  */
-class FirebaseAuthActivity : BaseActivity() {
+class RegisterActivity : BaseActivity() {
 
     companion object {
-        const val TAG = "FirebaseAuthActivity"
+        const val TAG = "RegisterActivity"
 
         fun startActivity(context: Context) {
-            context.startActivity(Intent(context, FirebaseAuthActivity::class.java))
+            context.startActivity(Intent(context, RegisterActivity::class.java))
         }
     }
 
-    override fun getLayoutResId() = R.layout.activity_auth
+    override fun getLayoutResId() = R.layout.activity_auth_register
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +33,7 @@ class FirebaseAuthActivity : BaseActivity() {
 
     private fun setUpToolbar() {
         toolbar.title = ""
-        authMainLayout.setOnApplyWindowInsetsListener { _, windowInsets ->
+        registerLayout.setOnApplyWindowInsetsListener { _, windowInsets ->
             (toolbar.layoutParams as ViewGroup.MarginLayoutParams).updateMargins(top = windowInsets.systemWindowInsetTop)
             windowInsets
         }
@@ -47,23 +46,5 @@ class FirebaseAuthActivity : BaseActivity() {
             onBackPressed()
         }
 
-        mAuth.addAuthStateListener {
-            updateUI()
-        }
     }
-
-    override fun onStart() {
-        super.onStart()
-        updateUI()
-    }
-
-    private fun updateUI() {
-        if (mAuth.currentUser != null) {
-            setFragment(AuthSuccessFragment.newInstance(), AuthSuccessFragment.TAG, false, R.id.fragmentContainerAuth)
-        } else {
-            setFragment(FirebaseAuthFragment.newInstance(), FirebaseAuthFragment.TAG, false, R.id.fragmentContainerAuth)
-        }
-    }
-
-
 }

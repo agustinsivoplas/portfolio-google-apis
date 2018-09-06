@@ -5,7 +5,7 @@
     android:layout_width="@dimen/drawer_layout_menu_width"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="@color/primaryColor"
+    android:background="@color/primaryDarkColor"
     app:layoutDescription="@xml/scene_main_menu">
 
     <androidx.appcompat.widget.AppCompatImageView

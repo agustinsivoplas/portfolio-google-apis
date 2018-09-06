@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updateMargins
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.credentials.Credential
@@ -13,10 +12,10 @@ import com.google.android.gms.auth.api.credentials.HintRequest
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.uy.atomico.googleapisportfolio.R
+import com.uy.atomico.googleapisportfolio.base.BaseActivity
 import com.uy.atomico.googleapisportfolio.extensions.value
 import kotlinx.android.synthetic.main.activity_auth_phone.*
 import java.util.concurrent.TimeUnit
@@ -25,7 +24,7 @@ import java.util.concurrent.TimeUnit
  * Created by agustin.sivoplas@gmail.com on 8/25/18.
  * Atomico Labs
  */
-class PhoneAuthActivity : AppCompatActivity() {
+class PhoneAuthActivity : BaseActivity() {
 
     companion object {
         const val TAG = "PhoneAuthActivity"
@@ -35,16 +34,6 @@ class PhoneAuthActivity : AppCompatActivity() {
         fun startActivity(context: Context) {
             context.startActivity(Intent(context, PhoneAuthActivity::class.java))
         }
-    }
-
-    private val mCredentialsApiClient: GoogleApiClient by lazy {
-        GoogleApiClient.Builder(this@PhoneAuthActivity)
-                .addApi(Auth.CREDENTIALS_API)
-                .build()
-    }
-
-    private val mAuth: FirebaseAuth by lazy {
-        FirebaseAuth.getInstance()
     }
 
     private var mVerificationId: String? = null
@@ -65,9 +54,10 @@ class PhoneAuthActivity : AppCompatActivity() {
         }
     }
 
+    override fun getLayoutResId() = R.layout.activity_auth_phone
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth_phone)
         setUpToolbar()
         bindListeners()
         requestHint()

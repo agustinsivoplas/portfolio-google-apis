@@ -18,4 +18,5 @@
     <string name="connected_with">Connected with</string>
     <string name="verify_code">Verify Code</string>
     <string name="enter_verification_code">Enter verification code</string>
+    <string name="create_account">Create account</string>
 </resources>

@@ -2,7 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/authLayout"
+    android:id="@+id/registerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -44,29 +44,18 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/phoneLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/login_layout_margin_top">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/cellPhoneImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_sms_phone" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/codeTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/view_default_margin_large"
-            android:layout_marginEnd="@dimen/view_default_margin_large"
+            android:layout_margin="@dimen/view_default_margin_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cellPhoneImageView">
+            app:layout_constraintTop_toTopOf="parent" >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/codeEditText"
@@ -74,18 +63,18 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_verification_code"
                 android:inputType="number"
-                android:maxLength="6" />
+                android:maxLength="6"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/verifyCodeButton"
-            style="@style/PrimaryButtonRoundedCorner"
+            android:id="@+id/registerButton"
+            style="@style/PrimaryFilledButtonRoundedCorner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/view_default_margin_large"
             android:layout_marginTop="@dimen/view_default_margin_medium"
             android:layout_marginEnd="@dimen/view_default_margin_large"
-            android:text="@string/verify_code"
+            android:text="@string/create_account"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/codeTextInputLayout" />

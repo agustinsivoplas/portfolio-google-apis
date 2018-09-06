@@ -3,12 +3,12 @@ package com.uy.atomico.googleapisportfolio.splash
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.core.view.ViewCompat
 import com.uy.atomico.googleapisportfolio.R
+import com.uy.atomico.googleapisportfolio.base.BaseActivity
 import com.uy.atomico.googleapisportfolio.main.MainActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
@@ -16,11 +16,12 @@ import kotlinx.android.synthetic.main.activity_splash.*
  * Created by agustin.sivoplas@gmail.com on 8/11/18.
  * Atomico Labs
  */
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
+
+    override fun getLayoutResId() = R.layout.activity_splash
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
         splashMotionLayout.transitionToEnd()
 
         splashMotionLayout.setTransitionListener(object : MotionLayout.TransitionListener {

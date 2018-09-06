@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authenticatedLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/containerAuthenticatedImageView"
+        android:layout_width="@dimen/authenticated_image_view_size"
+        android:layout_height="@dimen/authenticated_image_view_size"
+        android:layout_marginStart="@dimen/view_default_margin_large"
+        app:cardCornerRadius="@dimen/authenticated_image_view_container_radius"
+        app:cardElevation="@dimen/profile_picture_elevation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/authenticatedImageView"
+            android:layout_width="@dimen/authenticated_image_view_size"
+            android:layout_height="@dimen/authenticated_image_view_size"
+            app:srcCompat="@drawable/ic_account_circle" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/displayNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_default_margin_medium"
+        android:textColor="@color/primaryDarkColor"
+        android:textSize="@dimen/text_size_extra_big"
+        app:layout_constraintStart_toStartOf="@+id/containerAuthenticatedImageView"
+        app:layout_constraintTop_toBottomOf="@+id/containerAuthenticatedImageView"
+        tools:text="Agustin Sivoplas" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_default_margin"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="@dimen/view_default_margin"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintStart_toStartOf="@+id/displayNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/displayNameTextView"
+        tools:text="Email" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/connectedWithTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_default_margin_medium"
+        android:alpha="0.8"
+        android:drawablePadding="@dimen/view_default_margin_small"
+        android:text="@string/connected_with"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/displayNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signOutButton"
+        style="@style/PrimaryButtonRoundedCorner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_default_margin_medium"
+        android:text="@string/sign_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

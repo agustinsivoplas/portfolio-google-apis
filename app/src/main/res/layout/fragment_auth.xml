@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/authLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_default_margin_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_default_margin_large"
+        android:layout_marginTop="@dimen/view_default_margin"
+        android:layout_marginEnd="@dimen/view_default_margin_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginButton"
+        style="@style/PrimaryFilledButtonRoundedCorner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_default_margin_large"
+        android:layout_marginTop="@dimen/view_default_margin_medium"
+        android:layout_marginEnd="@dimen/view_default_margin_large"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpButton"
+        style="@style/PrimaryButtonRoundedCorner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_default_margin_large"
+        android:layout_marginTop="@dimen/view_default_margin_medium"
+        android:layout_marginEnd="@dimen/view_default_margin_large"
+        android:text="@string/create_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/googleSignInButton"
+        android:layout_width="@dimen/auth_button_size"
+        android:layout_height="@dimen/auth_button_size"
+        android:layout_marginEnd="@dimen/view_default_margin_large"
+        android:background="@drawable/circle_ripple"
+        android:elevation="@dimen/default_elevation"
+        android:src="@drawable/google"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/phoneSignInButton"
+        app:layout_constraintEnd_toStartOf="@id/phoneSignInButton" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/phoneSignInButton"
+        android:layout_width="@dimen/auth_button_size"
+        android:layout_height="@dimen/auth_button_size"
+        android:layout_marginBottom="@dimen/view_default_margin_medium_small"
+        android:background="@drawable/circle_ripple"
+        android:elevation="@dimen/default_elevation"
+        android:src="@drawable/cellphone_android"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/facebookSignInButton"
+        android:layout_width="@dimen/auth_button_size"
+        android:layout_height="@dimen/auth_button_size"
+        android:layout_marginStart="@dimen/view_default_margin_large"
+        android:background="@drawable/circle_ripple"
+        android:elevation="@dimen/default_elevation"
+        android:src="@drawable/facebook_box"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/phoneSignInButton"
+        app:layout_constraintStart_toEndOf="@id/phoneSignInButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

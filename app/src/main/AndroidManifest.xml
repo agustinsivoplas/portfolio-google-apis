@@ -31,7 +31,8 @@
         <activity
             android:name=".auth.FirebaseAuthActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/TranslucentAppTheme"/>
+            android:theme="@style/TranslucentAppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name=".auth.PhoneAuthActivity"

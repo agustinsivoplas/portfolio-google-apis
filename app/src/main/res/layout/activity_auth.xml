@@ -2,7 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/authLayout"
+    android:id="@+id/authMainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -43,173 +43,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/loginLayout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/login_layout_margin_top"
-        android:visibility="gone"
-        tools:visibility="gone">
+        android:fillViewport="true">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailTextInputLayout"
+        <FrameLayout
+            android:id="@+id/fragmentContainerAuth"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/view_default_margin_large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent" />
+    </ScrollView>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordTextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/view_default_margin_large"
-            android:layout_marginTop="@dimen/view_default_margin"
-            android:layout_marginEnd="@dimen/view_default_margin_large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout"
-            app:passwordToggleEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/loginButton"
-            style="@style/PrimaryButtonRoundedCorner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/view_default_margin_large"
-            android:layout_marginTop="@dimen/view_default_margin_medium"
-            android:layout_marginEnd="@dimen/view_default_margin_large"
-            android:text="@string/login"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/googleSignInButton"
-            android:layout_width="@dimen/auth_button_size"
-            android:layout_height="@dimen/auth_button_size"
-            android:layout_marginEnd="@dimen/view_default_margin_large"
-            android:background="@drawable/circle_ripple"
-            android:tint="@color/white"
-            android:elevation="@dimen/default_elevation"
-            android:src="@drawable/google"
-            app:layout_constraintBottom_toBottomOf="@id/phoneSignInButton"
-            app:layout_constraintEnd_toStartOf="@id/phoneSignInButton" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/phoneSignInButton"
-            android:layout_width="@dimen/auth_button_size"
-            android:layout_height="@dimen/auth_button_size"
-            android:layout_marginBottom="@dimen/view_default_margin_large"
-            android:background="@drawable/circle_ripple"
-            android:tint="@color/white"
-            android:elevation="@dimen/default_elevation"
-            android:src="@drawable/cellphone_android"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/facebookSignInButton"
-            android:layout_width="@dimen/auth_button_size"
-            android:layout_height="@dimen/auth_button_size"
-            android:layout_marginStart="@dimen/view_default_margin_large"
-            android:background="@drawable/circle_ripple"
-            android:tint="@color/white"
-            android:elevation="@dimen/default_elevation"
-            android:src="@drawable/facebook_box"
-            app:layout_constraintBottom_toBottomOf="@id/phoneSignInButton"
-            app:layout_constraintStart_toEndOf="@id/phoneSignInButton" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/authenticatedLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/authenticated_layout_margin_top"
-        android:visibility="gone"
-        tools:visibility="visible">
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/containerAuthenticatedImageView"
-            android:layout_width="@dimen/authenticated_image_view_size"
-            android:layout_height="@dimen/authenticated_image_view_size"
-            android:layout_marginStart="@dimen/view_default_margin_large"
-            app:cardCornerRadius="@dimen/authenticated_image_view_container_radius"
-            app:cardElevation="@dimen/profile_picture_elevation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/authenticatedImageView"
-                android:layout_width="@dimen/authenticated_image_view_size"
-                android:layout_height="@dimen/authenticated_image_view_size"
-                app:srcCompat="@drawable/ic_account_circle" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/displayNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_default_margin_medium"
-            android:textColor="@color/primaryColor"
-            android:textSize="@dimen/text_size_extra_big"
-            app:layout_constraintStart_toStartOf="@+id/containerAuthenticatedImageView"
-            app:layout_constraintTop_toBottomOf="@+id/containerAuthenticatedImageView"
-            tools:text="Agustin Sivoplas" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/emailTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_default_margin"
-            android:drawableLeft="@drawable/ic_email"
-            android:drawablePadding="@dimen/view_default_margin"
-            android:textColor="@color/black_text"
-            android:textSize="@dimen/text_size_large"
-            app:layout_constraintStart_toStartOf="@+id/displayNameTextView"
-            app:layout_constraintTop_toBottomOf="@+id/displayNameTextView"
-            tools:text="Email" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/connectedWithTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_default_margin_medium"
-            android:drawablePadding="@dimen/view_default_margin_small"
-            android:text="@string/connected_with"
-            android:textColor="@color/black_text"
-            android:textSize="@dimen/text_size_large"
-            app:layout_constraintStart_toStartOf="@+id/displayNameTextView"
-            android:textStyle="bold"
-            android:alpha="0.8"
-            app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/signOutButton"
-            style="@style/PrimaryButtonRoundedCorner"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/view_default_margin_medium"
-            android:text="@string/sign_out"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
