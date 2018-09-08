@@ -9,6 +9,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 import com.uy.atomico.googleapisportfolio.R
 
 /**
@@ -19,6 +20,8 @@ import com.uy.atomico.googleapisportfolio.R
 abstract class BaseFragment : Fragment() {
 
     protected abstract fun getLayoutResId(): Int
+
+    protected val scopeProvider: AndroidLifecycleScopeProvider by lazy { AndroidLifecycleScopeProvider.from(this) }
 
     protected val mAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -38,4 +41,5 @@ abstract class BaseFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(getLayoutResId(), container, false)
     }
+
 }

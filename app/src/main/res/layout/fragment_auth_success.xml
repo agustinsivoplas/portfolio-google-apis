@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authenticatedLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/containerAuthenticatedImageView"
         android:layout_width="@dimen/authenticated_image_view_size"
         android:layout_height="@dimen/authenticated_image_view_size"
         android:layout_marginStart="@dimen/view_default_margin_large"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         app:cardCornerRadius="@dimen/authenticated_image_view_container_radius"
         app:cardElevation="@dimen/profile_picture_elevation"
         app:layout_constraintStart_toStartOf="parent"

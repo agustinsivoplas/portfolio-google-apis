@@ -18,5 +18,18 @@
     <string name="connected_with">Connected with</string>
     <string name="verify_code">Verify Code</string>
     <string name="enter_verification_code">Enter verification code</string>
-    <string name="create_account">Create account</string>
+    <string name="create_account">Create Account</string>
+
+    <string name="error_invalid_verification_code">Invalid verification code</string>
+    <string name="error_invalid_phone_number">Invalid phone number</string>
+    <string name="input_email_error">Enter a valid email address</string>
+    <string name="input_password_error">Minimum 6 characters are required</string>
+    <string name="input_confirm_password_error">Confirm password is required</string>
+    <string name="input_password_dont_match_error">Passwords entered do not match</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="could_not_create_account">Could not create your account: </string>
+    <string name="authentication_failed">Email/Password Authentication Failed: </string>
+    <string name="facebook_authentication_failed">Facebook Authentication Failed: </string>
+    <string name="google_authentication_failed">Google Authentication Failed: </string>
+
 </resources>

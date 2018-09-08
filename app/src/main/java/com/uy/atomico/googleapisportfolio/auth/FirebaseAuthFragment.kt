@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -16,10 +17,14 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.GoogleAuthProvider
+import com.jakewharton.rxbinding2.widget.RxTextView
+import com.uber.autodispose.autoDisposable
 import com.uy.atomico.googleapisportfolio.R
 import com.uy.atomico.googleapisportfolio.base.BaseFragment
+import com.uy.atomico.googleapisportfolio.extensions.hideKeyboard
 import com.uy.atomico.googleapisportfolio.extensions.value
 import com.uy.atomico.googleapisportfolio.utils.KeyboardUtil
+import com.uy.atomico.googleapisportfolio.utils.Validators
 import kotlinx.android.synthetic.main.fragment_auth.*
 
 /**
@@ -49,6 +54,7 @@ class FirebaseAuthFragment : BaseFragment() {
     }
 
     private fun bindListeners() {
+        signUpButton.setOnClickListener { activity?.let { RegisterActivity.startActivity(it) } }
         loginButton.setOnClickListener { onLoginClicked() }
         googleSignInButton.setOnClickListener { startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN_CODE) }
         facebookSignInButton.setOnClickListener { LoginManager.getInstance().logInWithReadPermissions(this, arrayListOf("public_profile", "email")); }
@@ -63,9 +69,23 @@ class FirebaseAuthFragment : BaseFragment() {
                     }
 
                     override fun onError(exception: FacebookException) {
-                        Snackbar.make(authLayout, "Facebook Authentication Failed: " + exception.message, Snackbar.LENGTH_LONG).show()
+                        Snackbar.make(authLayout, getString(R.string.facebook_authentication_failed) + exception.message, Snackbar.LENGTH_LONG).show()
                     }
                 })
+
+        RxTextView.textChanges(emailEditText)
+                .skip(2)
+                .autoDisposable(scopeProvider)
+                .subscribe {
+                    validateEmailInput(Validators.validateEmail(emailEditText.value()))
+                }
+
+        RxTextView.textChanges(passwordEditText)
+                .skip(2)
+                .autoDisposable(scopeProvider)
+                .subscribe {
+                    validatePasswordInput(Validators.validatePassword(passwordEditText.value()))
+                }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -88,7 +108,7 @@ class FirebaseAuthFragment : BaseFragment() {
             mAuth.signInWithCredential(credential)
                     .addOnCompleteListener(it) { task ->
                         if (!task.isSuccessful) {
-                            Snackbar.make(authLayout, "Authentication Failed: " + task.exception?.message, Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(authLayout, getString(R.string.google_authentication_failed) + task.exception?.message, Snackbar.LENGTH_LONG).show()
                         }
                     }
         }
@@ -100,7 +120,7 @@ class FirebaseAuthFragment : BaseFragment() {
             mAuth.signInWithCredential(credential)
                     .addOnCompleteListener(it) { task ->
                         if (!task.isSuccessful) {
-                            Snackbar.make(authLayout, "Facebook Authentication Failed: " + task.exception?.message, Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(authLayout, getString(R.string.facebook_authentication_failed) + task.exception?.message, Snackbar.LENGTH_LONG).show()
                         }
                     }
         }
@@ -108,14 +128,46 @@ class FirebaseAuthFragment : BaseFragment() {
 
     private fun onLoginClicked() {
         activity?.let {
-            if (!emailEditText.value().isNullOrBlank() && !passwordEditText.value().isNullOrBlank()) {
-                mAuth.signInWithEmailAndPassword(emailEditText.value(), passwordEditText.value())
-                        .addOnCompleteListener(it) { task ->
-                            if (!task.isSuccessful) {
-                                Snackbar.make(authLayout, "Email/Password Authentication Failed: " + task.exception?.message, Snackbar.LENGTH_LONG).show()
+            if (!Validators.validateEmail(emailEditText.value())) {
+                validateEmailInput(false)
+            } else {
+                validateEmailInput(true)
+                if (!Validators.validatePassword(passwordEditText.value())) {
+                    validatePasswordInput(false)
+                } else {
+                    validatePasswordInput(true)
+                    hideKeyboard()
+                    mAuth.signInWithEmailAndPassword(emailEditText.value(), passwordEditText.value())
+                            .addOnCompleteListener(it) { task ->
+                                if (!task.isSuccessful) {
+                                    Snackbar.make(authLayout, getString(R.string.authentication_failed) + task.exception?.message, Snackbar.LENGTH_LONG).show()
+                                }
                             }
-                        }
+                }
             }
         }
+    }
+
+    private fun validateEmailInput(valid: Boolean) {
+        if (valid) {
+            if (!emailEditText.value().isNullOrBlank()) {
+                val tickDrawable = VectorDrawableCompat.create(resources, R.drawable.ic_check_circle, null)
+                emailEditText.setCompoundDrawablesWithIntrinsicBounds(null, null, tickDrawable, null)
+            }
+            emailTextInputLayout.error = ""
+        } else {
+            emailTextInputLayout.error = getString(R.string.input_email_error)
+            emailEditText.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
+        }
+        emailTextInputLayout.isErrorEnabled = !valid
+    }
+
+    private fun validatePasswordInput(valid: Boolean) {
+        if (valid) {
+            passwordTextInputLayout.error = ""
+        } else {
+            passwordTextInputLayout.error = getString(R.string.input_password_error)
+        }
+        passwordTextInputLayout.isErrorEnabled = !valid
     }
 }

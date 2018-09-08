@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 
 /**
  * Created by agustin.sivoplas@gmail.com on 8/26/18.
@@ -16,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth
 abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun getLayoutResId(): Int
+
+    protected val scopeProvider: AndroidLifecycleScopeProvider by lazy { AndroidLifecycleScopeProvider.from(this) }
 
     private var mHandler: Handler = Handler()
 
