@@ -20,6 +20,7 @@ import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
 import kotlinx.android.synthetic.main.activity_auth_register.*
 
+
 /**
  * Created by agustin.sivoplas@gmail.com on 8/26/18.
  * Atomico Labs
@@ -78,8 +79,9 @@ class RegisterActivity : BaseActivity() {
                 BiFunction { password: CharSequence, confirmPassword: CharSequence -> password.toString() == confirmPassword.toString() })
                 .autoDisposable(scopeProvider).subscribe { validatePasswordsMatching(it) }
 
-
-        registerButton.setOnClickListener { onCreateAccountClicked() }
+        registerButton.setOnClickListener {
+            onCreateAccountClicked()
+        }
     }
 
     private fun onCreateAccountClicked() {
@@ -101,8 +103,10 @@ class RegisterActivity : BaseActivity() {
                     } else {
                         validatePasswordsMatching(true)
                         hideKeyboard()
+                        registerButton.isRefreshing = true
                         mAuth.createUserWithEmailAndPassword(emailEditText.value(), passwordEditText.value())
                                 .addOnCompleteListener(this) { task ->
+                                    registerButton.isRefreshing = false
                                     if (!task.isSuccessful) {
                                         Snackbar.make(registerLayout, getString(R.string.could_not_create_account) + task.exception?.message, Snackbar.LENGTH_LONG).show()
                                     } else {

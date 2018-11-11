@@ -77,7 +77,7 @@
                 android:maxLength="6" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.uy.atomico.googleapisportfolio.widgets.CustomButton
             android:id="@+id/verifyCodeButton"
             style="@style/PrimaryButtonRoundedCorner"
             android:layout_width="match_parent"

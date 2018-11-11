@@ -44,10 +44,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/login_layout_margin_top"
         android:fillViewport="true"
         android:overScrollMode="never"
-        android:scrollbars="none"
-        android:layout_marginTop="@dimen/login_layout_margin_top">
+        android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -114,11 +114,10 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.uy.atomico.googleapisportfolio.widgets.CustomButton
                 android:id="@+id/registerButton"
                 style="@style/PrimaryFilledButtonRoundedCorner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/view_default_margin_large"
                 android:layout_marginTop="@dimen/view_default_margin_medium"
                 android:layout_marginEnd="@dimen/view_default_margin_large"
@@ -131,4 +130,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTextInputLayout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <com.google.android.material.circularreveal.CircularRevealLinearLayout
+        android:id="@+id/dialogRevealView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="@color/primaryDarkColor"
+        android:visibility="gone" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

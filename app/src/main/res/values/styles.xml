@@ -19,21 +19,24 @@
         <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
     </style>
 
-    <style name="PrimaryButtonRoundedCorner" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:background">@drawable/primary_rounded_button</item>
-        <item name="android:textAllCaps">false</item>
+    <style name="PrimaryButtonRoundedCorner" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="textAllCaps">false</item>
         <item name="android:layout_height">@dimen/rounded_button_height</item>
         <item name="android:textColor">@color/primaryDarkColor</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
+        <item name="strokeColor">@color/primaryDarkColor</item>
+        <item name="strokeWidth">1dp</item>
     </style>
 
-    <style name="PrimaryFilledButtonRoundedCorner" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:background">@drawable/primary_filled_rounded_button</item>
-        <item name="android:textAllCaps">false</item>
+    <style name="PrimaryFilledButtonRoundedCorner" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/primaryDarkColor</item>
+        <item name="textAllCaps">false</item>
         <item name="android:layout_height">@dimen/rounded_button_height</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
     </style>
 </resources>

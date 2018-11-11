@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/atom" />
+        app:srcCompat="@drawable/ic_atom" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/flaskSplashImageView"
@@ -39,5 +39,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/atomSplashImageView"
-        app:srcCompat="@drawable/flask_outline" />
+        app:srcCompat="@drawable/ic_flask" />
 </androidx.constraintlayout.motion.widget.MotionLayout>

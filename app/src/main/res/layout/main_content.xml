@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_logo_background"
-        android:layout_marginTop="@dimen/view_default_margin_small"/>
+        android:layout_marginTop="@dimen/view_default_margin"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/atomMainImageView"
@@ -25,8 +25,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/atom"
-        android:layout_marginTop="@dimen/view_default_margin_small"/>
+        app:srcCompat="@drawable/ic_atom"
+        android:layout_marginTop="17dp"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/flaskMainImageView"
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/atomMainImageView"
-        app:srcCompat="@drawable/flask_outline" />
+        app:srcCompat="@drawable/ic_flask" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/atomicoLabsTextView"
@@ -50,21 +50,18 @@
         app:fontFamily="@font/russo_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atomMainImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/atomMainImageView"
+        android:layout_marginTop="@dimen/view_default_margin"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/welcomeTextView"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/welcomeImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome"
-        android:textColor="@color/primaryDarkColor"
-        android:textStyle="bold"
-        app:fontFamily="@font/russo_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="@dimen/welcome_main_text_size"/>
+        app:srcCompat="@drawable/ic_welcome_bg"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/backgroundMainImageView"

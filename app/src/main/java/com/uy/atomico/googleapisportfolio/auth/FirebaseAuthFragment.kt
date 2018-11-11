@@ -137,8 +137,10 @@ class FirebaseAuthFragment : BaseFragment() {
                 } else {
                     validatePasswordInput(true)
                     hideKeyboard()
+                    loginButton.isRefreshing = true
                     mAuth.signInWithEmailAndPassword(emailEditText.value(), passwordEditText.value())
                             .addOnCompleteListener(it) { task ->
+                                loginButton.isRefreshing = false
                                 if (!task.isSuccessful) {
                                     Snackbar.make(authLayout, getString(R.string.authentication_failed) + task.exception?.message, Snackbar.LENGTH_LONG).show()
                                 }

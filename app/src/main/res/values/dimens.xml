@@ -3,13 +3,13 @@
     <dimen name="menu_drawable_padding">8dp</dimen>
     <dimen name="text_size_menu">20sp</dimen>
     <dimen name="menu_item_margin_top">32dp</dimen>
-    <dimen name="drawer_layout_menu_width">200dp</dimen>
-    <dimen name="menu_margin_start">15dp</dimen>
-    <dimen name="atom_splash_size">200dp</dimen>
-    <dimen name="flask_splash_size">36dp</dimen>
+    <dimen name="drawer_layout_menu_width">250dp</dimen>
+    <dimen name="menu_margin_start">25dp</dimen>
+    <dimen name="atom_splash_size">150dp</dimen>
+    <dimen name="flask_splash_size">48dp</dimen>
     <dimen name="splash_size_background">185dp</dimen>
 
-    <dimen name="atom_main_size">72dp</dimen>
+    <dimen name="atom_main_size">55dp</dimen>
     <dimen name="flask_main_size">16dp</dimen>
     <dimen name="background_main_size">69dp</dimen>
     <dimen name="background_main_height">250dp</dimen>
@@ -41,5 +41,10 @@
     <dimen name="authenticated_image_view_container_radius">64dp</dimen>
     <dimen name="profile_picture_elevation">16dp</dimen>
     <dimen name="default_elevation">6dp</dimen>
-    <dimen name="rounded_button_height">48dp</dimen>
+    <dimen name="rounded_button_height">56dp</dimen>
+    <dimen name="button_corner_radius">20dp</dimen>
+    <dimen name="sign_out_button_width">150dp</dimen>
+    <dimen name="drawer_atom_size">100dp</dimen>
+    <dimen name="atom_main_margin_start">50dp</dimen>
+    <dimen name="flask_main_margin_start">90dp</dimen>
 </resources>

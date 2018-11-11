@@ -167,12 +167,12 @@
 
         <Constraint
             android:id="@id/atomImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/drawer_atom_size"
+            android:layout_height="@dimen/drawer_atom_size"
             android:layout_marginTop="@dimen/menu_item_margin_top"
-            motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/atom_main_margin_start"/>
 
         <Constraint
             android:id="@id/firebaseAuthTextView"

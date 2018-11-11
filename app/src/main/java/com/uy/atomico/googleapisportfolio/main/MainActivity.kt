@@ -49,7 +49,7 @@ class MainActivity : BaseActivity() {
         alpha.duration = 2000
         alpha.fillAfter = true
         atomicoLabsTextView.startAnimation(alpha)
-        welcomeTextView.startAnimation(alpha)
+        welcomeImageView.startAnimation(alpha)
 
         val translateAnimation = TranslateAnimation(0f, 0f,
                 resources.displayMetrics.heightPixels.toFloat(), 0f)

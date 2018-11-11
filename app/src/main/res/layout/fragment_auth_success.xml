@@ -21,8 +21,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/authenticatedImageView"
-            android:layout_width="@dimen/authenticated_image_view_size"
-            android:layout_height="@dimen/authenticated_image_view_size"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_account_circle" />
     </com.google.android.material.card.MaterialCardView>
 
@@ -64,10 +64,10 @@
         app:layout_constraintStart_toStartOf="@+id/displayNameTextView"
         app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/signOutButton"
         style="@style/PrimaryButtonRoundedCorner"
-        android:layout_width="150dp"
+        android:layout_width="@dimen/sign_out_button_width"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/view_default_margin_medium"
         android:text="@string/sign_out"

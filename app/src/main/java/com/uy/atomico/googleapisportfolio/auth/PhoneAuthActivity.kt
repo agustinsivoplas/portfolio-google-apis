@@ -9,7 +9,6 @@ import androidx.core.view.updateMargins
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.credentials.Credential
 import com.google.android.gms.auth.api.credentials.HintRequest
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
@@ -105,8 +104,10 @@ class PhoneAuthActivity : BaseActivity() {
     private fun signInWithPhoneAuth() {
         if (!mVerificationId.isNullOrBlank() && !codeEditText.value().isNullOrBlank()) {
             val credential = PhoneAuthProvider.getCredential(mVerificationId!!, codeEditText.value())
+            verifyCodeButton.isRefreshing = true
             mAuth.signInWithCredential(credential)
                     .addOnCompleteListener(this) { task ->
+                        verifyCodeButton.isRefreshing = false
                         if (task.isSuccessful) {
                             finish()
                         } else {
