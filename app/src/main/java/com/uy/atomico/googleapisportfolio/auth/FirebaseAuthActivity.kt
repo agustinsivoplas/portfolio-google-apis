@@ -64,6 +64,4 @@ class FirebaseAuthActivity : BaseActivity() {
             setFragment(FirebaseAuthFragment.newInstance(), FirebaseAuthFragment.TAG, false, R.id.fragmentContainerAuth)
         }
     }
-
-
 }
