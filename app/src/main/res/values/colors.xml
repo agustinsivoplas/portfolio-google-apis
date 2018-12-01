@@ -6,4 +6,5 @@
     <color name="white">#ffffff</color>
     <color name="primaryNotificationColor">#ff2170FB</color>
     <color name="black_text">#80000000</color>
+    <color name="black">#000000</color>
 </resources>

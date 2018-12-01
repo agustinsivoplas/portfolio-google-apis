@@ -31,5 +31,8 @@
     <string name="authentication_failed">Email/Password Authentication Failed: </string>
     <string name="facebook_authentication_failed">Facebook Authentication Failed: </string>
     <string name="google_authentication_failed">Google Authentication Failed: </string>
+    <string name="allow">Allow</string>
+    <string name="allow_your_location">Allow your location</string>
+    <string name="allow_your_location_msg">Please give access to your location to use this functionality.</string>
 
 </resources>

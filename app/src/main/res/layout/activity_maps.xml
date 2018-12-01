@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mapsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emptyViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cellPhoneImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_default_margin_large"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/allowLocationButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            app:srcCompat="@drawable/ic_location_phone_settings" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/allowLocationTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_default_margin_medium"
+            android:alpha="0.5"
+            android:text="@string/allow_your_location"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_extra_super_large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cellPhoneImageView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/allowLocationMsgTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/view_default_margin_extra_large"
+            android:layout_marginEnd="@dimen/view_default_margin_extra_large"
+            android:layout_marginBottom="@dimen/view_default_margin"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/view_default_margin_medium"
+            android:text="@string/allow_your_location_msg"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allowLocationTitleTextView" />
+
+        <com.uy.atomico.googleapisportfolio.widgets.CustomButton
+            android:id="@+id/allowLocationButton"
+            style="@style/PrimaryFilledButtonRoundedCorner"
+            android:layout_width="@dimen/allow_button_width"
+            android:layout_height="wrap_content"
+            android:text="@string/allow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allowLocationMsgTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+

@@ -94,7 +94,9 @@ class FirebaseAuthFragment : BaseFragment() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account)
+                account?.let {
+                    firebaseAuthWithGoogle(it)
+                }
             } catch (e: ApiException) {
                 Log.e(FirebaseAuthActivity.TAG, "Google sign in failed", e)
             }

@@ -40,7 +40,7 @@ android {
             buildConfigField("String", "GOOGLE_API_KEY", keystoreProperties['key.api.google'])
             buildConfigField("String", "FIREBASE_ROOT_PATH", '"portfolio"')
             buildConfigField("String", "FIREBASE_CLOUD_MESSAGE_KEY", keystoreProperties['key.api.google.cloud.message'])
-            manifestPlaceholders = [places_api_key: keystoreProperties['key.api.google']]
+            manifestPlaceholders = [google_api_key: keystoreProperties['key.api.google']]
         }
 
         debug {
@@ -51,7 +51,7 @@ android {
             buildConfigField("String", "GOOGLE_API_KEY", keystoreProperties['key.api.google'])
             buildConfigField("String", "FIREBASE_ROOT_PATH", '"portfolio"')
             buildConfigField("String", "FIREBASE_CLOUD_MESSAGE_KEY", keystoreProperties['key.api.google.cloud.message'])
-            manifestPlaceholders = [places_api_key: keystoreProperties['key.api.google']]
+            manifestPlaceholders = [google_api_key: keystoreProperties['key.api.google']]
 
         }
     }
@@ -96,10 +96,13 @@ dependencies {
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0"
 
     implementation "androidx.core:core-ktx:1.0.0"
-    implementation "com.google.firebase:firebase-core:16.0.1"
-    implementation "com.google.firebase:firebase-auth:16.0.2"
-    implementation "com.google.firebase:firebase-messaging:17.1.0"
-    implementation "com.google.android.gms:play-services-auth:16.0.0"
+    implementation "com.google.firebase:firebase-core:16.0.4"
+    implementation "com.google.firebase:firebase-auth:16.0.5"
+    implementation "com.google.firebase:firebase-messaging:17.3.4"
+    implementation "com.google.android.gms:play-services-auth:16.0.1"
+    implementation "com.google.android.gms:play-services-maps:16.0.0"
+    implementation "com.google.android.gms:play-services-places:16.0.0"
+    implementation "com.google.android.gms:play-services-location:16.0.0"
 
     //Rx
     implementation "io.reactivex.rxjava2:rxjava:2.2.0"
@@ -117,7 +120,6 @@ dependencies {
 
     implementation "com.uber.autodispose:autodispose-android-archcomponents:1.0.0-RC2"
     implementation "com.uber.autodispose:autodispose-android-archcomponents-ktx:1.0.0-RC2"
-
 
     //Retrofit
     implementation "com.squareup.moshi:moshi-kotlin:1.6.0"

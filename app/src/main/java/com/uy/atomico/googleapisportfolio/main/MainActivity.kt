@@ -7,6 +7,7 @@ import com.uy.atomico.googleapisportfolio.R
 import com.uy.atomico.googleapisportfolio.auth.FirebaseAuthActivity
 import com.uy.atomico.googleapisportfolio.base.BaseActivity
 import com.uy.atomico.googleapisportfolio.data.api.PushAPI
+import com.uy.atomico.googleapisportfolio.maps.MapsActivity
 import kotlinx.android.synthetic.main.main_content.*
 import kotlinx.android.synthetic.main.motion_main_drawer_layout_menu.*
 
@@ -27,20 +28,21 @@ class MainActivity : BaseActivity() {
     private fun bindListeners() {
         firebaseAuthTextView.setOnClickListener {
             FirebaseAuthActivity.startActivity(this)
-            menuMotionLayout.closeDrawer()
+            closeDrawer()
         }
         mapsTextView.setOnClickListener {
-            menuMotionLayout.closeDrawer()
+            MapsActivity.startActivity(this)
+            closeDrawer()
         }
         driveTextView.setOnClickListener {
-            menuMotionLayout.closeDrawer()
+            closeDrawer()
         }
         visionTextView.setOnClickListener {
-            menuMotionLayout.closeDrawer()
+            closeDrawer()
         }
         messageTextView.setOnClickListener {
             PushAPI.sendPushNotification()
-            menuMotionLayout.closeDrawer()
+            closeDrawer()
         }
     }
 
@@ -61,5 +63,11 @@ class MainActivity : BaseActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         finishAffinity()
+    }
+
+    private fun closeDrawer() {
+        menuMotionLayout.postDelayed({
+            menuMotionLayout.closeDrawer()
+        }, 100)
     }
 }
